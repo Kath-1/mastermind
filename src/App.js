@@ -3,65 +3,51 @@ import "./app.css";
 
 const App = () => (
   <main role="main">
+    <h1>Mastermind</h1>
     <section className="gameboard">
-      <h1>Mastermind</h1>
-      <div className="row">
-        <div className="row-item guess-container">
-          <div className="hole"></div>
-          <div className="hole"></div>
-          <div className="hole"></div>
-          <div className="hole"></div>
-        </div>
-        <div className="row-item hint-container">
-          <div className="hole small black"></div>
-          <div className="hole small black"></div>
-          <div className="hole small white"></div>
-          <div className="hole small"></div>
-        </div>
-      </div>
-
-      <div className="row">
-        <div className="row-item guess-container">
-          <div className="hole"></div>
-          <div className="hole"></div>
-          <div className="hole"></div>
-          <div className="hole"></div>
-        </div>
-        <div className="row-item hint-container">
-          <div className="hole small"></div>
-          <div className="hole small"></div>
-          <div className="hole small"></div>
-          <div className="hole small"></div>
-        </div>
-      </div>
-      <div className="row-item pin-container">
-        <div className="pin">
-          <div className="pin-head orange"></div>
-          <div className="pin-cone"></div>
-        </div>
-        <div className="pin">
-          <div className="pin-head yellow"></div>
-          <div className="pin-cone"></div>
-        </div>
-        <div className="pin">
-          <div className="pin-head pink"></div>
-          <div className="pin-cone"></div>
-        </div>
-        <div className="pin">
-          <div className="pin-head purple"></div>
-          <div className="pin-cone"></div>
-        </div>
-        <div className="pin">
-          <div className="pin-head green"></div>
-          <div className="pin-cone"></div>
-        </div>
-        <div className="pin">
-          <div className="pin-head blue"></div>
-          <div className="pin-cone"></div>
-        </div>
-      </div>
+      <Row />
+      <Pins />
     </section>
   </main>
+);
+
+const Row = (props) => (
+  <div className="row">
+    <div className="row-item guess-container">
+      <Hole />
+      <Hole />
+      <Hole />
+      <Hole />
+    </div>
+    <div className="row-item hint-container">
+      <SmallHole />
+      <SmallHole />
+      <SmallHole />
+      <SmallHole />
+    </div>
+  </div>
+);
+
+const Hole = (props) => <div className="hole"></div>;
+
+const SmallHole = (props) => <div className="hole small "></div>;
+
+const Pins = (props) => (
+  <div className="row-item pin-container">
+    <Pin color="orange" />
+    <Pin color="yellow" />
+    <Pin color="pink" />
+    <Pin color="purple" />
+    <Pin color="green" />
+    <Pin color="blue" />
+  </div>
+);
+
+const Pin = ({ color }) => (
+  <div className="pin">
+    <div className={`pin-head ${color}`}></div>
+    <div className="pin-cone"></div>
+  </div>
 );
 
 export default App;
