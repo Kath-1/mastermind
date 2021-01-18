@@ -1,0 +1,133 @@
+.gameboard {
+  max-width: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #654321;
+  margin: 30px auto;
+  background-color: #d8af86;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #654321;
+  font-size: 40px;
+  font-family: "Staatliches", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+}
+
+/*** ROWS ***/
+
+.row {
+  display: flex;
+  flex-direction: row;
+  padding: 3px;
+  margin: 0 auto;
+}
+
+.row-item {
+  border: 2px solid #654321;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.guess-container {
+  display: flex;
+  flex-direction: row;
+  margin-right: 5px;
+  align-items: center;
+}
+
+.hint-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 46px;
+  width: 46px;
+}
+
+/*** HOLES ***/
+
+.hole {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 2px solid #654321;
+  margin: 2px;
+  background-color: #654321;
+}
+
+.hole.small {
+  height: 15px;
+  width: 15px;
+}
+
+/*** PINS ***/
+
+.pin-container {
+  width: 218px;
+  height: 60px;
+  margin: 5px auto;
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.pin {
+  margin: 0 2px;
+}
+
+.pin-head {
+  border-radius: 50%;
+  height: 33px;
+  width: 33px;
+}
+
+.pin-cone {
+  position: relative;
+  left: 7px;
+  top: -4px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 30px 10px 0 10px;
+  border-color: #3f2a14 transparent transparent transparent;
+}
+
+/*** COLORS ***/
+
+.black {
+  background-color: black;
+  border-color: blanchedalmond;
+}
+
+.white {
+  background-color: white;
+}
+
+.yellow {
+  background-color: gold;
+}
+
+.orange {
+  background-color: coral;
+}
+
+.pink {
+  background-color: hotpink;
+}
+
+.purple {
+  background-color: lavender;
+}
+
+.green {
+  background-color: lightgreen;
+}
+
+.blue {
+  background-color: lightskyblue;
+}
