@@ -54,6 +54,20 @@ h1 {
   width: 46px;
 }
 
+button.row-item {
+  height: 60px;
+  width: 60px;
+  background-color: #d8af86;
+  color: #654321;
+  font-weight: bold;
+  font-family: "Staatliches", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+}
+
+button:disabled {
+  opacity: 0.3;
+}
+
 /*** HOLES ***/
 
 .hole {
@@ -70,10 +84,19 @@ h1 {
   width: 15px;
 }
 
+.hole-border {
+  border: 2px solid #d8af86;
+  border-radius: 5px;
+}
+
+.selected {
+  border-color: #654321;
+}
+
 /*** PINS ***/
 
 .pin-container {
-  width: 218px;
+  width: 238px;
   height: 60px;
   margin: 5px auto;
   padding: 3px;
