@@ -115,7 +115,7 @@ button:disabled {
   width: 33px;
 }
 
-.pin-cone {
+/* .pin-cone {
   position: relative;
   left: 7px;
   top: -4px;
@@ -124,6 +124,14 @@ button:disabled {
   border-style: solid;
   border-width: 30px 10px 0 10px;
   border-color: #3f2a14 transparent transparent transparent;
+} */
+
+.pin-foot {
+  position: relative;
+  left: 12px;
+  top: auto;
+  width: 8px;
+  height: 25px;
 }
 
 /*** COLORS ***/

@@ -146,7 +146,7 @@ const Pins = ({ colors, setColor }) => (
 const Pin = ({ color, setColor }) => (
   <div className="pin" onClick={() => setColor(color)}>
     <div className={`pin-head ${color}`}></div>
-    <div className="pin-cone"></div>
+    <div className={`pin-foot ${color}`}></div>
   </div>
 );
 
