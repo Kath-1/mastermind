@@ -1,6 +1,7 @@
 import React from "react";
 import "./app.css";
 import check from "./check";
+import Modal from "./Modal";
 
 const colors = ["orange", "yellow", "pink", "purple", "green", "blue"];
 
@@ -16,9 +17,13 @@ class App extends React.Component {
       currentGuess: Array(4).fill(null),
       selected: 0,
       over: false,
+      won: false,
+      show: false,
     };
     this.setColor = this.setColor.bind(this);
     this.checkGuess = this.checkGuess.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
   selectHole(i) {
     this.setState({ selected: i });
@@ -42,18 +47,28 @@ class App extends React.Component {
     newRows.push(row);
     this.setState({ rows: newRows });
     if (res.black === 4) {
-      alert("You won!");
+      this.showModal();
       this.setState({ over: true });
-    } else if (newRows.length === 12) {
-      alert("Game over!");
+    } else if (newRows.length === 1) {
+      this.showModal();
       this.setState({ over: true });
     }
     this.setState({ currentGuess: Array(4).fill(null) });
     this.setState({ selected: 0 });
   }
+  showModal() {
+    this.setState({ show: true });
+  }
+  hideModal() {
+    this.setState({ show: false });
+  }
   render() {
     return (
       <main role="main">
+        <Modal handleClose={this.hideModal} show={this.state.show}>
+          {this.state.won ? <VictoryMessage /> : <GameOverMessage />}
+        </Modal>
+
         <h1>Mastermind</h1>
         <section className="gameboard">
           {this.state.rows.map((row, i) => (
@@ -149,5 +164,9 @@ const Pin = ({ color, setColor }) => (
     <div className={`pin-foot ${color}`}></div>
   </div>
 );
+
+const VictoryMessage = () => <div>Du vann!</div>;
+
+const GameOverMessage = () => <div>Game over</div>;
 
 export default App;

@@ -15,8 +15,8 @@ body {
 }
 
 h1 {
-  margin: 50px 0 0 0;
-  padding: 0;
+  margin: 0;
+  padding: 50px 0 0 0;
   text-align: center;
   color: #654321;
   font-size: 40px;
@@ -129,7 +129,7 @@ button:disabled {
 .pin-foot {
   position: relative;
   left: 12px;
-  top: auto;
+  top: -1px;
   width: 8px;
   height: 25px;
 }
@@ -167,4 +167,35 @@ button:disabled {
 
 .blue {
   background-color: lightskyblue;
+}
+
+/*** MODAL ***/
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+.modal-main {
+  position: fixed;
+  background: #d8af86;
+  border: 2px solid #654321;
+  width: 80%;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
 }
