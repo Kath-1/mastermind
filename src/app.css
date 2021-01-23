@@ -3,6 +3,11 @@ body {
   background-color: blanchedalmond;
 }
 
+main {
+  font-family: "Staatliches", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+}
+
 .gameboard {
   max-width: 400px;
   padding: 20px;
@@ -182,14 +187,22 @@ button:disabled {
 }
 
 .modal-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: fixed;
   background: #d8af86;
   border: 2px solid #654321;
+  text-align: center;
+  padding: 50px;
   width: 80%;
-  height: 100px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.modal-message {
+  font-size: 30px;
 }
 
 .display-block {

@@ -18,7 +18,7 @@ class App extends React.Component {
       selected: 0,
       over: false,
       won: false,
-      show: false,
+      show: true,
     };
     this.setColor = this.setColor.bind(this);
     this.checkGuess = this.checkGuess.bind(this);
@@ -48,10 +48,10 @@ class App extends React.Component {
     this.setState({ rows: newRows });
     if (res.black === 4) {
       this.showModal();
-      this.setState({ over: true });
-    } else if (newRows.length === 1) {
+      this.setState({ over: true, won: true });
+    } else if (newRows.length === 12) {
       this.showModal();
-      this.setState({ over: true });
+      this.setState({ over: true, won: false });
     }
     this.setState({ currentGuess: Array(4).fill(null) });
     this.setState({ selected: 0 });
@@ -66,7 +66,11 @@ class App extends React.Component {
     return (
       <main role="main">
         <Modal handleClose={this.hideModal} show={this.state.show}>
-          {this.state.won ? <VictoryMessage /> : <GameOverMessage />}
+          {this.state.won ? (
+            <VictoryMessage noOfRows={this.state.rows.length} />
+          ) : (
+            <GameOverMessage code={this.state.code} />
+          )}
         </Modal>
 
         <h1>Mastermind</h1>
@@ -165,8 +169,23 @@ const Pin = ({ color, setColor }) => (
   </div>
 );
 
-const VictoryMessage = () => <div>Du vann!</div>;
+const VictoryMessage = ({ noOfRows }) => (
+  <React.Fragment>
+    <h1>Grattis, du vann!</h1>
+    <div className="modal-message">{`Du klarade det på ${noOfRows} försök`}</div>
+  </React.Fragment>
+);
 
-const GameOverMessage = () => <div>Game over</div>;
+const GameOverMessage = ({ code }) => (
+  <React.Fragment>
+    <h1>Game over</h1>
+    <p className="modal-message">Correct code:</p>
+    <div className="row-item guess-container">
+      {code.map((guess, i) => (
+        <Hole key={i} color={guess} />
+      ))}
+    </div>
+  </React.Fragment>
+);
 
 export default App;
