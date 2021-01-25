@@ -24,6 +24,7 @@ class App extends React.Component {
     this.checkGuess = this.checkGuess.bind(this);
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
+    this.selectHole = this.selectHole.bind(this);
   }
   selectHole(i) {
     this.setState({ selected: i });
@@ -72,7 +73,6 @@ class App extends React.Component {
             <GameOverMessage code={this.state.code} />
           )}
         </Modal>
-
         <h1>Mastermind</h1>
         <GameBoard
           rows={this.state.rows}
@@ -124,7 +124,6 @@ const GameBoard = ({
         </CheckButton>
       </div>
     ) : null}
-
     <Pins colors={colors} setColor={setColor} />
   </section>
 );
