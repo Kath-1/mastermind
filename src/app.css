@@ -182,7 +182,7 @@ button:disabled {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(101, 67, 33, 0.6);
   z-index: 10;
 }
 
@@ -192,7 +192,7 @@ button:disabled {
   align-items: center;
   position: fixed;
   background: #d8af86;
-  border: 2px solid #654321;
+  border: 5px solid #654321;
   text-align: center;
   padding: 50px;
   width: 80%;
@@ -203,6 +203,17 @@ button:disabled {
 
 .modal-message {
   font-size: 30px;
+}
+
+.modal-button {
+  font-size: 30px;
+  background-color: #d8af86;
+  color: #654321;
+  font-weight: bold;
+  font-family: "Staatliches", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+  margin-top: 20px;
+  align-self: flex-end;
 }
 
 .display-block {

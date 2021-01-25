@@ -18,7 +18,7 @@ class App extends React.Component {
       selected: 0,
       over: false,
       won: false,
-      show: true,
+      show: false,
     };
     this.setColor = this.setColor.bind(this);
     this.checkGuess = this.checkGuess.bind(this);
@@ -172,14 +172,14 @@ const Pin = ({ color, setColor }) => (
 const VictoryMessage = ({ noOfRows }) => (
   <React.Fragment>
     <h1>Grattis, du vann!</h1>
-    <div className="modal-message">{`Du klarade det på ${noOfRows} försök`}</div>
+    <p className="modal-message">{`Du klarade det på ${noOfRows} försök`}</p>
   </React.Fragment>
 );
 
 const GameOverMessage = ({ code }) => (
   <React.Fragment>
     <h1>Game over</h1>
-    <p className="modal-message">Correct code:</p>
+    <p className="modal-message">The correct code was:</p>
     <div className="row-item guess-container">
       {code.map((guess, i) => (
         <Hole key={i} color={guess} />
