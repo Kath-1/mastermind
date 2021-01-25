@@ -74,40 +74,60 @@ class App extends React.Component {
         </Modal>
 
         <h1>Mastermind</h1>
-        <section className="gameboard">
-          {this.state.rows.map((row, i) => (
-            <Row row={row} key={i} />
-          ))}
-          {!this.state.over ? (
-            <div className="row">
-              <div className="row-item guess-container">
-                {this.state.currentGuess.map((guess, i) => (
-                  <Hole
-                    key={i}
-                    color={guess}
-                    selected={this.state.selected}
-                    index={i}
-                    currentRow={true}
-                    onClick={() => this.selectHole(i)}
-                  />
-                ))}
-              </div>
-              <CheckButton
-                className="row-item"
-                disabled={this.state.currentGuess.indexOf(null) !== -1}
-                checkGuess={this.checkGuess}
-              >
-                Check
-              </CheckButton>
-            </div>
-          ) : null}
-
-          <Pins colors={colors} setColor={this.setColor} />
-        </section>
+        <GameBoard
+          rows={this.state.rows}
+          over={this.state.over}
+          currentGuess={this.state.currentGuess}
+          selected={this.state.selected}
+          checkGuess={this.checkGuess}
+          setColor={this.setColor}
+          selectHole={this.selectHole}
+        />
       </main>
     );
   }
 }
+
+const GameBoard = ({
+  rows,
+  over,
+  currentGuess,
+  selected,
+  checkGuess,
+  setColor,
+  selectHole,
+}) => (
+  <section className="gameboard">
+    {rows.map((row, i) => (
+      <Row row={row} key={i} />
+    ))}
+    {!over ? (
+      <div className="row">
+        <div className="row-item guess-container">
+          {currentGuess.map((guess, i) => (
+            <Hole
+              key={i}
+              color={guess}
+              selected={selected}
+              index={i}
+              currentRow={true}
+              onClick={() => selectHole(i)}
+            />
+          ))}
+        </div>
+        <CheckButton
+          className="row-item"
+          disabled={currentGuess.indexOf(null) !== -1}
+          checkGuess={checkGuess}
+        >
+          Check
+        </CheckButton>
+      </div>
+    ) : null}
+
+    <Pins colors={colors} setColor={setColor} />
+  </section>
+);
 
 const CheckButton = ({ disabled, checkGuess }) => (
   <button className="row-item" disabled={disabled} onClick={checkGuess}>
