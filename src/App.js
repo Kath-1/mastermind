@@ -13,6 +13,7 @@ class App extends React.Component {
         { length: 4 },
         () => colors[Math.floor(Math.random() * 6)]
       ),
+      //   code: ["purple", "blue", "blue", "yellow"],
       rows: [],
       currentGuess: Array(4).fill(null),
       selected: 0,
@@ -73,6 +74,8 @@ class App extends React.Component {
             <GameOverMessage code={this.state.code} />
           )}
         </Modal>
+        <Remaining remaining={12 - this.state.rows.length} />
+        {/* <Rules /> */}
         <h1>Mastermind</h1>
         <GameBoard
           rows={this.state.rows}
@@ -206,5 +209,13 @@ const GameOverMessage = ({ code }) => (
     </div>
   </React.Fragment>
 );
+
+const Remaining = ({ remaining }) => (
+  <section className="remaning-container">
+    <div>Remaining:</div> <div>{remaining} / 12</div>
+  </section>
+);
+
+const Rules = () => <section className="rules-container">Rules:</section>;
 
 export default App;
